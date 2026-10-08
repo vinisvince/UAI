@@ -1,0 +1,22 @@
+{
+  "name": "@uai/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/app.ts" },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.0.1",
+    "@uai/chat": "workspace:*",
+    "@uai/connectors": "workspace:*",
+    "@uai/contracts": "workspace:*",
+    "@uai/core": "workspace:*",
+    "@uai/engine": "workspace:*",
+    "fastify": "^5.4.0",
+    "zod": "^3.25.76",
+    "zod-to-json-schema": "^3.24.6"
+  }
+}

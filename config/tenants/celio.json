@@ -1,0 +1,125 @@
+{
+  "id": "celio",
+  "name": "Célio (pilote, données simulées)",
+  "platform": "sfcc",
+  "currency": "EUR",
+  "version": "celio-rules-2026.10.1",
+  "apiKeys": [
+    {
+      "sha256": "ceb5965790ea98b90c0225babfd6673aebeae6c334d488239074466dddc233d0",
+      "kind": "public",
+      "label": "partenaire-demo",
+      "roles": [],
+      "quotaPerMinute": 60
+    },
+    {
+      "sha256": "f930aa79e7e7c067b6834427bab799a47bb700916e2a8eeb2ab42c7eaf5c5970",
+      "kind": "front",
+      "label": "site-et-app",
+      "roles": [],
+      "quotaPerMinute": 600
+    },
+    {
+      "sha256": "f458d57fe0895ca320c2db1d0cd6a6fc884f7a994787fbec0e7cdf65d80dd1c3",
+      "kind": "service",
+      "label": "service-client",
+      "roles": [
+        "sav"
+      ],
+      "quotaPerMinute": 120
+    }
+  ],
+  "connectors": [
+    "algolia-mcp",
+    "sfcc-scapi",
+    "sfcc-oci",
+    "sf-loyalty",
+    "sf-oms-mulesoft",
+    "einstein-reco",
+    "truefit-mcp",
+    "celio-cmp",
+    "sfmc-restock"
+  ],
+  "connectorOverrides": {
+    "sf-oms-mulesoft": {
+      "timeoutMs": 350
+    }
+  },
+  "ttl": {},
+  "identity": {
+    "mode": "map"
+  },
+  "budgets": {
+    "defaultToolMs": 600,
+    "tools": {
+      "search_products": 300,
+      "check_store_stock": 450,
+      "complete_look": 600,
+      "recommend_size": 450,
+      "recommend_products": 600,
+      "subscribe_restock": 500,
+      "prepare_cart": 500,
+      "get_customer_summary": 800
+    }
+  },
+  "genUi": {
+    "components": [
+      "ProductCarousel",
+      "ProductCard",
+      "SizePicker",
+      "StoreStock"
+    ]
+  },
+  "rules": {
+    "availability": {
+      "lowStockThreshold": 2,
+      "maxStores": 3
+    },
+    "look": {
+      "complements": {
+        "chemise": [
+          "pantalon",
+          "veste",
+          "accessoire"
+        ],
+        "tshirt": [
+          "pantalon",
+          "veste",
+          "chaussures"
+        ],
+        "pull": [
+          "pantalon",
+          "chemise",
+          "veste"
+        ],
+        "pantalon": [
+          "chemise",
+          "pull",
+          "chaussures"
+        ],
+        "veste": [
+          "chemise",
+          "pantalon",
+          "pull"
+        ],
+        "chaussures": [
+          "pantalon",
+          "tshirt"
+        ],
+        "accessoire": [
+          "chemise",
+          "pantalon"
+        ]
+      },
+      "maxItems": 3
+    },
+    "ranking": {
+      "inSizeStock": 3,
+      "recentCategory": 2,
+      "fitMatch": 1,
+      "styleMatch": 1,
+      "loyaltyExclusive": 2,
+      "loyaltyExclusiveTag": "exclusif-membres"
+    }
+  }
+}

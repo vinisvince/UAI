@@ -1,0 +1,8 @@
+{
+  "name": "@uai/connectors",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "dependencies": { "@uai/contracts": "workspace:*", "@uai/core": "workspace:*", "zod": "^3.25.76" }
+}

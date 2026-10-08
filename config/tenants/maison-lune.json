@@ -1,0 +1,113 @@
+{
+  "id": "maison-lune",
+  "name": "Maison Lune (Shopify, marque fictive)",
+  "platform": "shopify",
+  "currency": "EUR",
+  "version": "lune-rules-2026.10.1",
+  "apiKeys": [
+    {
+      "sha256": "8fab1eace522c834efd2b03416fda3770f76751cf201e996dab3763ec11d7fbf",
+      "kind": "public",
+      "label": "partenaire-demo",
+      "roles": [],
+      "quotaPerMinute": 60
+    },
+    {
+      "sha256": "66c7c047f1ef40b4ccef35cc4a379a71367791e2c1e56d57968c759592b7d260",
+      "kind": "front",
+      "label": "boutique",
+      "roles": [],
+      "quotaPerMinute": 600
+    },
+    {
+      "sha256": "f3ac009cd089a19b1667aec2a2863b65631741815f37558b9e7fd95df1164070",
+      "kind": "service",
+      "label": "service-client",
+      "roles": [
+        "sav"
+      ],
+      "quotaPerMinute": 120
+    }
+  ],
+  "connectors": [
+    "shopify-storefront",
+    "shopify-admin",
+    "shopify-reco",
+    "shopify-privacy",
+    "lune-restock-app"
+  ],
+  "connectorOverrides": {},
+  "ttl": {},
+  "identity": {
+    "mode": "map"
+  },
+  "budgets": {
+    "defaultToolMs": 600,
+    "tools": {
+      "search_products": 300,
+      "check_store_stock": 450,
+      "complete_look": 600,
+      "recommend_size": 450,
+      "recommend_products": 600,
+      "subscribe_restock": 500,
+      "prepare_cart": 500,
+      "get_customer_summary": 800
+    }
+  },
+  "genUi": {
+    "components": [
+      "ProductCarousel",
+      "ProductCard",
+      "StoreStock",
+      "SizePicker"
+    ]
+  },
+  "rules": {
+    "availability": {
+      "lowStockThreshold": 2,
+      "maxStores": 3
+    },
+    "look": {
+      "complements": {
+        "chemise": [
+          "pantalon",
+          "veste",
+          "pull"
+        ],
+        "tshirt": [
+          "pantalon",
+          "veste"
+        ],
+        "pull": [
+          "pantalon",
+          "chemise"
+        ],
+        "pantalon": [
+          "chemise",
+          "pull",
+          "chaussures"
+        ],
+        "veste": [
+          "chemise",
+          "pantalon"
+        ],
+        "chaussures": [
+          "pantalon"
+        ],
+        "accessoire": [
+          "pull",
+          "veste"
+        ]
+      },
+      "maxItems": 3
+    },
+    "ranking": {
+      "inSizeStock": 3,
+      "recentCategory": 2,
+      "fitMatch": 1,
+      "styleMatch": 1,
+      "loyaltyExclusive": 2,
+      "loyaltyExclusiveTag": "exclusif-membres"
+    }
+  }
+}

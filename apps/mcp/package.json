@@ -1,0 +1,17 @@
+{
+  "name": "@uai/mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/server.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.0",
+    "@uai/connectors": "workspace:*",
+    "@uai/contracts": "workspace:*",
+    "@uai/core": "workspace:*",
+    "@uai/engine": "workspace:*",
+    "zod": "^3.25.76"
+  }
+}

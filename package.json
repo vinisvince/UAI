@@ -1,0 +1,32 @@
+{
+  "name": "uai",
+  "private": true,
+  "version": "0.1.0",
+  "description": "UA Intelligence — couche d'orchestration commerce (MVP en mode bouchon)",
+  "type": "module",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter @uai/api --filter @uai/demo dev",
+    "dev:api": "pnpm --filter @uai/api dev",
+    "dev:demo": "pnpm --filter @uai/demo dev",
+    "mcp": "pnpm --filter @uai/mcp start",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.json --noEmit && pnpm --filter @uai/demo typecheck",
+    "build:demo": "pnpm --filter @uai/demo build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}
