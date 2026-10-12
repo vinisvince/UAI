@@ -1,0 +1,18 @@
+# Blueprint Render : un seul service web qui sert l'API et la démo construite.
+services:
+  - type: web
+    name: uai
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm build:demo
+    startCommand: pnpm --filter @uai/api start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: SERVE_DEMO
+        value: "1"
+      - key: DEMO_MODE
+        value: "1"
+      - key: LLM_PROVIDER
+        value: mock

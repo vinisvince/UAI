@@ -17,6 +17,10 @@ pnpm test         # 63 tests (contrats, sécurité, latence, portabilité, chat,
 pnpm typecheck
 ```
 
+## Hébergement (Render)
+
+`render.yaml` décrit un service web unique : l'API sert aussi la démo construite (`SERVE_DEMO=1`), sur la même origine. Sur Render : **New → Blueprint**, choisir ce dépôt, valider. La démo est alors en ligne à l'adresse du service. L'état (sessions, pannes simulées, journal) reste en mémoire et repart de zéro à chaque redémarrage.
+
 ## Ce que montre la démo
 
 Deux marques sur deux stacks différentes, avec **les mêmes briques et les mêmes contrats** :
