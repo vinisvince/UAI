@@ -7,9 +7,10 @@ import { buildApp } from "./app.js";
 const port = Number(process.env.PORT ?? 8787);
 const { app } = buildApp({ demoMode: process.env.DEMO_MODE !== "0", logger: process.env.LOG === "1" });
 
-// Hébergement (Render…) : l'API sert aussi la démo construite (`pnpm build:demo`), sur la même origine.
+// Hébergement (Render…) : l'API sert aussi la démo si elle a été construite (`pnpm build:demo`), sur la même origine.
+// SERVE_DEMO=0 désactive ce comportement.
 const demoDir = resolve(dirname(fileURLToPath(import.meta.url)), "../../demo/dist");
-if (process.env.SERVE_DEMO === "1" && existsSync(demoDir)) {
+if (process.env.SERVE_DEMO !== "0" && existsSync(demoDir)) {
   void app.register(fastifyStatic, { root: demoDir });
 }
 

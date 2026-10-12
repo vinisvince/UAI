@@ -19,7 +19,7 @@ pnpm typecheck
 
 ## Hébergement (Render)
 
-`render.yaml` décrit un service web unique : l'API sert aussi la démo construite (`SERVE_DEMO=1`), sur la même origine. Sur Render : **New → Blueprint**, choisir ce dépôt, valider. La démo est alors en ligne à l'adresse du service. L'état (sessions, pannes simulées, journal) reste en mémoire et repart de zéro à chaque redémarrage.
+`render.yaml` décrit un service web unique : l'API sert aussi la démo dès qu'elle a été construite (`pnpm build:demo`), sur la même origine (`SERVE_DEMO=0` pour désactiver). Sur Render : **New → Blueprint**, choisir ce dépôt, valider. La démo est alors en ligne à l'adresse du service. L'état (sessions, pannes simulées, journal) reste en mémoire et repart de zéro à chaque redémarrage.
 
 ## Ce que montre la démo
 
